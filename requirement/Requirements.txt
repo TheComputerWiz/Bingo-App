@@ -1,0 +1,41 @@
+﻿Look at the updated bingo infrastructure to understand how the app now operates.
+
+
+What I need from you : 
+
+
+	1. Player logs in using serial number, session begins (once live the logout button will be removed and players will not be able to log out until all game rounds are played)
+
+	2. Player should be able to play 6 different game rounds.
+
+	3. Caller’s view should have a “Next game” button (you need to add) that will move the players to the next game)
+
+	4. When player presses enter it currently accepts all the balls the caller has called, it ALSO needs to put the player on the same game round (for example if a user goes to the bathroom and the caller calls 3 balls and someone gets bingo then they move to the next game round, when that player comes back to their seat and presses enter it should dab all the balls that have been called, which it ALREADY DOES, but it should also put them in the same game round as the caller)
+
+
+Game Rounds (please see attached bingo win patterns to understand which patterns are the correct win patterns for that player to win that game round)
+
+
+	Game 1
+		Number 22 diagonal plus four corners
+	Game 2
+		Number 23 kite
+	Game 3
+		Number 20 small picture frame
+	Game 4
+		Number 6 middle line
+	Game 5
+		Number one straight bingo
+	Game 6
+		Number to Vertical bingo
+	
+	
+How to log in :
+
+	username : superadmin
+	password : 123
+
+	username : caller
+	password : unique number at the top left of the game individul sessions under the admins dashboard
+
+	serial : number in the admins dashboard on the row labeled player in the column labeled serial
