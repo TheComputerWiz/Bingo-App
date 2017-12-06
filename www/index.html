@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Bingo</title>
+  <!-- Angular JS -->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+
+	<!--
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  -->
+  <!-- Font Awesome -->
+  <script src="http://use.fontawesome.com/e3bd66a1b8.js"></script>
+	<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+	<script  src="js/jquery.js"></script>
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+      <link rel="stylesheet" href="css/style.css">
+
+	<style>
+
+	</style>
+</head>
+<body ng-app="myApp">
+
+<div class="loader"></div>
+
+<div id="flash" style="display:none">
+
+</div>
+
+
+
+<div id="login">
+	<form id="formLogin">
+		<input type="hidden" name="action" value="login" />
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-5 col-md-3">
+					<br/><br/>
+					<div class="form-login">
+						<h4>Login as Cashier/Caller</h4>
+						<input type="text" name="name" required id="userName" class="form-control input-sm chat-input" placeholder="username" />
+						</br>
+						<input type="text" name="password" required  id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+						</br>
+						<div class="wrapper">
+            <span class="group-btn">
+                <button type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+            </span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+	<br/><br/>
+
+	<form id="formSerial">
+		<input type="hidden" name="action" value="joinGame" />
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-5 col-md-3">
+					<div class="form-login">
+						<h4>Login using Serial</h4>
+						<input type="text" name="serial" required  class="form-control input-sm chat-input" placeholder="Serial number" />
+						</br>
+
+						<div class="wrapper">
+				            <span class="group-btn">
+				                <button type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+				            </span>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</form>
+
+
+</div>
+
+
+
+<div style="display:none;" id="admin">
+	<div class="container">
+
+		<button id="addGame" class="btn btn-success">Add Session</button>
+		<button  class="btn btn-success logout">Logout</button>
+
+
+		<div id="listGames">
+
+		</div>
+
+
+	</div>
+
+</div>
+
+<div  style="display:none;" id="game">
+	<div class="container">
+		
+		<button  class=" pull-right btn btn-success logout">Logout</button>
+	</div>
+<div class="container">
+<div id="left_view" class="col-xs-12 col-sm-12">
+    <table id="bingo_flashboardPlayers" style="display: none;">
+		<tr>
+		<th>B</th>
+		<td id="1">B1</td>
+		<td id="2">B2</td>
+		<td id="3">B3</td>
+		<td id="4">B4</td>
+		<td id="5">B5</td>
+		<td id="6">B6</td>
+		<td id="7">B7</td>
+		<td id="8">B8</td>
+		<td id="9">B9</td>
+		<td id="10">B10</td>
+		<td id="11">B11</td>
+		<td id="12">B12</td>
+		<td id="13">B13</td>
+		<td id="14">B14</td>
+		<td id="15">B15</td>
+	</tr>
+	<tr>
+		<th>I</th> 
+		<td id="16">I16</td>
+		<td id="17">I17</td>
+		<td id="18">I18</td>
+		<td id="19">I19</td>
+		<td id="20">I20</td>
+		<td id="21">I21</td>
+		<td id="22">I22</td>
+		<td id="23">I23</td>
+		<td id="24">I24</td>
+		<td id="25">I25</td>
+		<td id="26">I26</td>
+		<td id="27">I27</td>
+		<td id="28">I28</td>
+		<td id="29">I29</td>
+		<td id="30">I30</td>
+	</tr>
+	<tr>
+		<th>N</th>
+		<td id="31">N31</td>
+		<td id="32">N32</td>
+		<td id="33">N33</td>
+		<td id="34">N34</td>
+		<td id="35">N35</td>
+		<td id="36">N36</td>
+		<td id="37">N37</td>
+		<td id="38">N38</td>
+		<td id="39">N39</td>
+		<td id="40">N40</td>
+		<td id="41">N41</td>
+		<td id="42">N42</td>
+		<td id="43">N43</td>
+		<td id="44">N44</td>
+		<td id="45">N45</td>
+	</tr>
+	<tr>
+		<th>G</th>
+		<td id="46">G46</td>
+		<td id="47">G47</td>
+		<td id="48">G48</td>
+		<td id="49">G49</td>
+		<td id="50">G50</td>
+		<td id="51">G51</td>
+		<td id="52">G52</td>
+		<td id="53">G53</td>
+		<td id="54">G54</td>
+		<td id="55">G55</td>
+		<td id="56">G56</td>
+		<td id="57">G57</td>
+		<td id="58">G58</td>
+		<td id="59">G59</td>
+		<td id="60">G60</td>
+	</tr>
+	<tr>
+		<th>O</th>
+		<td id="61">O61</td>
+		<td id="62">O62</td>
+		<td id="63">O63</td>
+		<td id="64">O64</td>
+		<td id="65">O65</td>
+		<td id="66">O66</td>
+		<td id="67">O67</td>
+		<td id="68">O68</td>
+		<td id="69">O69</td>
+		<td id="70">O70</td>
+		<td id="71">O71</td>
+		<td id="72">O72</td>
+		<td id="73">O73</td>
+		<td id="74">O74</td>
+		<td id="75">O75</td>
+	</tr>
+	</table>
+</div>
+<div class="col-xs-6 col-sm-1">
+	<div class="row">
+		<div id="ball_view">
+			<div id="game01">
+				<div class="w3-content w3-section" style="max-width:500px">
+					<img class="game_pattern_win" src="images/patterns/straight bingo B.jpg" style="width:100%; ">
+					<img class="game_pattern_win" src="images/patterns/straight bingo I.jpg" style="width:100%">
+					<img class="game_pattern_win" src="images/patterns/straight bingo N.jpg" style="width:100%">
+					<img class="game_pattern_win" src="images/patterns/straight bingo G.jpg" style="width:100%">
+					<img class="game_pattern_win" src="images/patterns/straight bingo O.jpg" style="width:100%">
+					<img class="game_pattern_win" src="images/patterns/corners.jpg" style="width:100%">
+				</div>
+			</div>
+			<div id="game01">
+				<div class="w3-content w3-section" style="max-width:500px">
+					<img class="game_pattern_win" src="images/patterns/diagnol one.jpg" style="width:100%">
+					<img class="game_pattern_win" src="images/patterns/diagnol two.jpg" style="width:100%">
+					<img class="game_pattern_win" src="images/patterns/corners.jpg" style="width:100%">
+				</div>
+			</div>
+
+			
+			<script>
+				var myIndex = 0;
+				carousel();
+
+				function carousel() {
+					var i;
+					var x = document.getElementsByClassName("game_pattern_win");
+					for (i = 0; i < x.length; i++) {
+					x[i].style.display = "none";  
+					}
+					myIndex++;
+					if (myIndex > x.length) {myIndex = 1}    
+					x[myIndex-1].style.display = "block";  
+					setTimeout(carousel, 2000); // Change image every 2 seconds
+				}
+			</script>
+		
+
+		<table class="mycustome-table" style="display:none;">
+			<tr>
+				<td class="select"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="select"></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td></td>
+				<td class="select"></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td></td>
+				<td></td>
+				<td class="select"></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="select"></td>
+				<td class="select"></td>
+				<td></td>
+				<td></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td class="select"></td>
+				<td class="select"></td>
+				<td></td>
+				<td></td>
+				<td class="select"></td>
+			</tr>
+		</table>
+			<!-- <center id="current_number" style="color:red"></center> -->
+		</div>
+		<div id="game_played">
+			<center id="current_game_number" style="color:red"></center>
+		</div>
+	</div>
+</div>
+<div id="" class="col-xs-12 col-sm-9" style="padding:20px">
+	
+	<div id="bingo_div">			
+	</div>
+
+</div>
+<div class="col-xs-12 col-sm-2" style="padding-right: 0px; padding-left: 0px;">
+			
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div id="add_more" >
+					    <i class="fa fa-eye" aria-hidden="true" style="font-size: 60px;"></i>
+						<p>Views</p>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div id="menu" >
+						<a href="#" data-toggle="modal" data-target="#menuModal" style="color:white;"><i class="fa fa-bars" aria-hidden="true" style="font-size: 60px;"></i>
+						<p>Menu</p></a>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6">
+					<div id="show_dabber" >			    
+						<p>Enter</p>
+					</div>
+				</div>
+			</div>
+			<!--
+			<div id="enter" >
+				<p style="font-size: 32px; color: white;">Enter</p>
+			</div>		
+			-->
+</div>
+			<script  src="js/index.js"></script>	
+</div>
+
+
+
+
+<!-- line modal -->
+<div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+			<h3 class="modal-title" id="lineModalLabel"></h3>
+		</div>
+		<div class="modal-body">
+			
+            <div>
+				<h5><input id="enableSound" type="checkbox"> Disable sound </h5>
+				</div>
+				<hr>
+				<div id="previous_game">
+				<i class="fa fa-reply" aria-hidden="true" style="font-size:32px;"></i>
+				Previous Game
+				</div>
+				<div id="next_game">
+				<i class="fa fa-share" aria-hidden="true" style="font-size:32px;"></i>
+				Next Game
+				</div>
+				<div id="display_mini_flashboard">
+				<i class="fa fa-window-maximize" aria-hidden="true" style="font-size:32px;"></i>
+				View Flashboard
+				</div>
+				<hr>
+
+				<div class="row">
+					<h6>Change dabber to:</h6>
+					
+						<div class="row">
+							<div class="col-xs-12 col-sm-6">
+								<ul id="dabber">
+									<div class="row">
+										<li id="chip01"><img src='images/chips/chip01.jpg' width="50px;"></li>
+										<li id="chip02"><img src='images/chips/chip02.png' width="50px;"></li>
+										<li id="chip03"><img src='images/chips/chip03.jpg' width="50px;"></li>
+										<li id="chip04"><img src='images/chips/chip04.jpg' width="50px;"></li>
+										<li id="chip05"><img src='images/chips/chip05.jpg' width="50px;"></li>	
+									</div>		
+									<div class="row">
+										<li id="chip06"><img src='images/chips/chip06.png' width="50px;"></li>
+										<li id="chip07"><img src='images/chips/chip07.png' width="50px;"></li>
+										<li id="chip08"><img src='images/chips/chip08.png' width="50px;"></li>
+										<li id="chip09"><img src='images/chips/chip09.png' width="50px;"></li>	
+										<li id="chip10"><img src='images/chips/chip10.png' width="50px;"></li>	
+									</div>
+									<div class="row">
+										<li id="colorBlue"><div id="circleBlue"></div></li>
+										<li id="colorRed"><div id="circleRed"></div></li>
+										<li id="colorYellow"><div id="circleYellow"></div></li>		
+										<li id="colorGreen"><div id="circleGreen"></div></li>		
+										<li id="colorOrange"><div id="circleOrange"></div></li>		
+									</div>
+								</ul>
+							</div>
+							<div class="col-xs-6 col-sm-6">
+								<div class="chosenDabber"></div>
+								<img src="" class="imgChosenDabber">
+							</div>
+							</ul>
+						</div>
+					
+				</div>
+			
+			</div>
+
+		</div>
+		<div class="modal-footer">
+			<div class="btn-group btn-group-justified" role="group" aria-label="group button">
+				
+					
+					<div id="exit_to_game">
+						<a href="#" data-dismiss="modal" style="color:white;"><i class="fa fa-sign-out" aria-hidden="true" style="font-size:32px;"></i>
+						Exit to Game</a>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+  </div>
+</div>
+<audio id="bingo" src="sound/bingo.mp3" type="audio/mpeg"></audio>    
+</body>
+</html>

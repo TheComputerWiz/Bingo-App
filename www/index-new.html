@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Bingo</title>
+<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<script src="http://use.fontawesome.com/e3bd66a1b8.js"></script>
+<script src="https://js.pusher.com/4.1/pusher.min.js"></script>
+
+<script  src="js/jquery.js"></script>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="css/style.css">
+
+<style>
+#bingo_card,#bingo_card1,#bingo_card2,#bingo_card3
+{
+float:left;margin-right:15px;
+}
+</style>
+</head>
+<body ng-app="myApp">
+
+
+<div id="flash" style="display:none">
+
+</div>
+
+<div id="login">
+
+
+
+<form id="formLogin">
+<input type="hidden" name="action" value="login" />
+<div class="container">
+<div class="row">
+<div class="col-md-offset-5 col-md-3">
+<br/><br/>
+<div class="form-login">
+<h4>Login as Cashier/Caller</h4>
+<input type="text" name="name" required id="userName" class="form-control input-sm chat-input" placeholder="username" />
+</br>
+<input type="text" name="password" required  id="userPassword" class="form-control input-sm chat-input" placeholder="password" />
+</br>
+<div class="wrapper">
+<span class="group-btn">
+<button type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+</span>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</form>
+
+
+<br/><br/>
+
+<form id="formSerial">
+<input type="hidden" name="action" value="joinGame" />
+<div class="container">
+<div class="row">
+<div class="col-md-offset-5 col-md-3">
+<div class="form-login">
+<h4>Login using Serial</h4>
+<input type="text" name="serial" required  class="form-control input-sm chat-input" placeholder="Serial number" />
+</br>
+<div class="wrapper">
+<span class="group-btn">
+<button type="submit" class="btn btn-primary btn-md">login <i class="fa fa-sign-in"></i></button>
+</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<div style="display:none;" id="admin">
+<div class="container">
+<button id="addGame" class="btn btn-success">Add Session</button>
+<button  class="btn btn-success logout">Logout</button>
+<div id="listGames">
+</div>
+</div>
+</div>
+<div  style="display:none;" id="game">
+<div class="container">
+<button  class="pull-right btn btn-success logout">Logout</button>
+</div>
+<div id="left_view" class="col-xs-12 col-sm-8">
+	<table id="bingo_flashboardPlayers" style="display: none;">
+	<tr>
+	<th>B</th>
+	<td id="b1">B1</td>
+	<td id="b2">B2</td>
+	<td id="b3">B3</td>
+	<td id="b4">B4</td>
+	<td id="b5">B5</td>
+	<td id="b6">B6</td>
+	<td id="b7">B7</td>
+	<td id="b8">B8</td>
+	<td id="b9">B9</td>
+	<td id="b10">B10</td>
+	<td id="b11">B11</td>
+	<td id="b12">B12</td>
+	<td id="b13">B13</td>
+	<td id="b14">B14</td>
+	<td id="b15">B15</td>
+	</tr>
+	<tr>
+	<th>I</th> 
+	<td id="i16">I16</td>
+	<td id="i17">I17</td>
+	<td id="i18">I18</td>
+	<td id="i19">I19</td>
+	<td id="i20">I20</td>
+	<td id="i21">I21</td>
+	<td id="i22">I22</td>
+	<td id="i23">I23</td>
+	<td id="i24">I24</td>
+	<td id="i25">I25</td>
+	<td id="i26">I26</td>
+	<td id="i27">I27</td>
+	<td id="i28">I28</td>
+	<td id="i29">I29</td>
+	<td id="i30">I30</td>
+	</tr>
+	<tr>
+	<th>N</th>
+	<td id="">N31</td>
+	<td id="">N32</td>
+	<td id="">N33</td>
+	<td id="">N34</td>
+	<td id="">N35</td>
+	<td id="">N36</td>
+	<td id="">N37</td>
+	<td id="">N38</td>
+	<td id="">N39</td>
+	<td id="">N40</td>
+	<td id="">N41</td>
+	<td id="">N42</td>
+	<td id="">N43</td>
+	<td id="">N44</td>
+	<td id="">N45</td>
+	</tr>
+	<tr>
+	<th>G</th>
+	<td id="">G46</td>
+	<td id="">G47</td>
+	<td id="">G48</td>
+	<td id="">G49</td>
+	<td id="">G50</td>
+	<td id="">G51</td>
+	<td id="">G52</td>
+	<td id="">G53</td>
+	<td id="">G54</td>
+	<td id="">G55</td>
+	<td id="">G56</td>
+	<td id="">G57</td>
+	<td id="">G58</td>
+	<td id="">G59</td>
+	<td id="">G60</td>
+	</tr>
+	<tr>
+	<th>O</th>
+	<td id="">O61</td>
+	<td id="">O62</td>
+	<td id="">O63</td>
+	<td id="">O64</td>
+	<td id="">O65</td>
+	<td id="">O66</td>
+	<td id="">O67</td>
+	<td id="">O68</td>
+	<td id="">O69</td>
+	<td id="">O70</td>
+	<td id="">O71</td>
+	<td id="">O72</td>
+	<td id="">O73</td>
+	<td id="">O74</td>
+	<td id="">O75</td>
+	</tr>
+	</table>
+</div>
+<div id="bingo_div" class="col-xs-12 col-sm-8">
+	<table id="bingo_card">
+	<tr>
+	<th>B</th>
+	<th>I</th>
+	<th>N</th>
+	<th>G</th>
+	<th>O</th>
+	</tr>
+	<tr>
+	<td id="square0">&nbsp;</td>
+	<td id="square5">&nbsp;</td>
+	<td id="square10">&nbsp;</td>
+	<td id="square14">&nbsp;</td>
+	<td id="square19">&nbsp;</td>
+	</tr>
+	<tr>
+	<td id="square1">&nbsp;</td>
+	<td id="square6">&nbsp;</td>
+	<td id="square11">&nbsp;</td>
+	<td id="square15">&nbsp;</td>
+	<td id="square20">&nbsp;</td>
+	</tr>
+	<tr>
+	<td id="square2">&nbsp;</td>
+	<td id="square7">&nbsp;</td>
+	<td id="free">Free</td>
+	<td id="square16">&nbsp;</td>
+	<td id="square21">&nbsp;</td>
+	</tr>
+	<tr>
+	<td id="square3">&nbsp;</td>
+	<td id="square8">&nbsp;</td>
+	<td id="square12">&nbsp;</td>
+	<td id="square17">&nbsp;</td>
+	<td id="square22">&nbsp;</td>
+	</tr>
+	<tr>
+	<td id="square4">&nbsp;</td>
+	<td id="square9">&nbsp;</td>
+	<td id="square13">&nbsp;</td>
+	<td id="square18">&nbsp;</td>
+	<td id="square23">&nbsp;</td>
+	</tr>
+	<tfoot>
+	<th colspan="5">	<span class="cardSerial">Serial: 909090</span>
+	</th>
+	</tfoot>
+	</table>
+</div>
+<div id="enter" >
+<p style="font-size: 32px; color: white;">Enter</p>
+</div>
+<div id="add_more" >
+<i class="fa fa-eye" aria-hidden="true" style="font-size: 60px;"></i>
+<p>Views</p>
+</div>
+<div id="menu" >
+<i class="fa fa-bars" aria-hidden="true" style="font-size: 60px;"></i>
+<p>Menu</p>
+</div>
+<div id="reload" >
+<i class="fa fa-files-o" aria-hidden="true" style="font-size: 60px;"></i>
+<p>Cards</p>
+</div>
+<div id="ball_view"><center>Live Ball</center>
+<center id="current_number" style="color:red"></center>
+</div>
+<div id="game_played"><center>Current Game</center>
+<center id="current_game_number" style="color:red"></center>
+</div>
+<script  src="js/index.js"></script>
+</div>
+</body>
+</html>

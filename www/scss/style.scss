@@ -1,0 +1,56 @@
+$primary-color: #9acabc;
+$font-color: tomato;
+body {
+  
+   width: 50%;
+   margin: 5em auto;
+   background: lighten($primary-color, 10%);
+  
+  h1 {
+    font-family: Garamond;
+    letter-spacing: 0.125em;
+    color: darken($font-color, 25%);
+  }
+  div p#output {
+    width: 2em;
+    height: 2em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 2em;
+    padding-left: 1em;
+    background: tomato;
+  }
+  div p#ltr {
+    width: 2em;
+    height: 2em;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: 2em;
+    padding-left: 1em;
+    background: steelblue;
+  }
+  .b-array,
+  .i-array,
+  .n-array,
+  .g-array,
+  .o-array {
+    color: darken($primary-color, 20%);
+    font-size: 1.3em;
+    font-weight: bold;
+    margin-top: 1.2em;
+  }
+  
+  button {
+    background: lighten(steelblue, 15%);
+    color: #fff;
+    font-weight: bold;
+    margin: 1em 1em 0 0;
+    padding: 1.125em;
+    border-radius: 15px;
+  }
+  button:active {
+    background: darken(steelblue, 15%);
+  }
+}

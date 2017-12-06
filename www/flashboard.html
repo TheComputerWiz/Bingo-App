@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Bingo</title>
+  <!-- Angular JS -->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+
+	<!-- Font Awesome -->
+	<script src="http://use.fontawesome.com/e3bd66a1b8.js"></script>
+	<script  src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$("#enter").hide();
+	</script>
+
+
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  
+      <link rel="stylesheet" href="css/style.css">
+ 
+    <style>
+		body {
+		color: white;
+		}
+		
+		#bingo_flashboard {
+		font-size:18px;
+		position: relative;
+		left: 10px;
+		color:white;
+		}
+		
+		#verification {
+		position: relative;
+		left: 20px;
+		top: 220px;
+		color: red;
+		font-size: 20px;
+		}
+    </style>
+
+
+</head>
+<body ng-app="myApp">
+<h1>Caller Flashboard Managment</h1>
+<button  class="btn btn-success logout">Logout</button>
+
+<div id="left_view">
+<table id="bingo_flashboard" >
+	<tr>
+		<th>B</th>
+		<td id="1">B1</td>
+		<td id="2">B2</td>
+		<td id="3">B3</td>
+		<td id="4">B4</td>
+		<td id="5">B5</td>
+		<td id="6">B6</td>
+		<td id="7">B7</td>
+		<td id="8">B8</td>
+		<td id="9">B9</td>
+		<td id="10">B10</td>
+		<td id="11">B11</td>
+		<td id="12">B12</td>
+		<td id="13">B13</td>
+		<td id="14">B14</td>
+		<td id="15">B15</td>
+	</tr>
+	<tr>
+		<th>I</th> 
+		<td id="16">I16</td>
+		<td id="17">I17</td>
+		<td id="18">I18</td>
+		<td id="19">I19</td>
+		<td id="20">I20</td>
+		<td id="21">I21</td>
+		<td id="22">I22</td>
+		<td id="23">I23</td>
+		<td id="24">I24</td>
+		<td id="25">I25</td>
+		<td id="26">I26</td>
+		<td id="27">I27</td>
+		<td id="28">I28</td>
+		<td id="29">I29</td>
+		<td id="30">I30</td>
+	</tr>
+	<tr>
+		<th>N</th>
+		<td id="31">N31</td>
+		<td id="32">N32</td>
+		<td id="33">N33</td>
+		<td id="34">N34</td>
+		<td id="35">N35</td>
+		<td id="36">N36</td>
+		<td id="37">N37</td>
+		<td id="38">N38</td>
+		<td id="39">N39</td>
+		<td id="40">N40</td>
+		<td id="41">N41</td>
+		<td id="42">N42</td>
+		<td id="43">N43</td>
+		<td id="44">N44</td>
+		<td id="45">N45</td>
+	</tr>
+	<tr>
+		<th>G</th>
+		<td id="46">G46</td>
+		<td id="47">G47</td>
+		<td id="48">G48</td>
+		<td id="49">G49</td>
+		<td id="50">G50</td>
+		<td id="51">G51</td>
+		<td id="52">G52</td>
+		<td id="53">G53</td>
+		<td id="54">G54</td>
+		<td id="55">G55</td>
+		<td id="56">G56</td>
+		<td id="57">G57</td>
+		<td id="58">G58</td>
+		<td id="59">G59</td>
+		<td id="60">G60</td>
+	</tr>
+	<tr>
+		<th>O</th>
+		<td id="61">O61</td>
+		<td id="62">O62</td>
+		<td id="63">O63</td>
+		<td id="64">O64</td>
+		<td id="65">O65</td>
+		<td id="66">O66</td>
+		<td id="67">O67</td>
+		<td id="68">O68</td>
+		<td id="69">O69</td>
+		<td id="70">O70</td>
+		<td id="71">O71</td>
+		<td id="72">O72</td>
+		<td id="73">O73</td>
+		<td id="74">O74</td>
+		<td id="75">O75</td>
+	</tr>
+</table>
+		<div id="verification">
+			<form method="post" name="display" action="display_verification.php" />
+				Enter the serial number you want to verify:<br>
+				<input type="text" name="verification" />
+				<input type="submit" name="Verify" value="display" />
+			</form>
+		</div>
+		<div id="new_game" class="button">
+			<p style="font-size: 32px; color: white;">New Game</p>
+		</div>
+		<div id="enter" class="button">
+			<p style="font-size: 32px; color: white;">Enter</p>
+		</div>
+</div>
+
+	
+</body>
+</html>

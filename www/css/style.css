@@ -1,0 +1,583 @@
+@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+
+		table {
+			border-collapse: collapse;
+			width:100%;
+		}@import url(https://fonts.googleapis.com/css?family=Indie+Flower);
+
+
+		th, td {
+			padding: 6px;
+			border: 2px blue solid;
+			text-align: center;	
+			width:20px;
+			height:20px;		
+		}
+		th {
+			background: blue;
+			color: #fff;
+			border:2px solid lightblue;
+		}
+
+		#listGames {
+			background-color: white;
+		}
+
+		#free, .pickedBG {
+			
+			position: relative;
+		}
+		.blue_box{
+			width: 100%;
+			height: 80px;
+			background-color: blue;
+			float: left;
+		}
+		#free:after, .pickedBG:after {
+
+			
+		}
+		tfoot th{
+			padding: 0px;
+			background: none;
+			color: #000;
+			border:0px;
+		}
+
+		.winningBG {
+		/* 	lets set it to flash or blink or something */
+		}
+
+		body h1 {
+		  font-family: Times New Roman;
+		  letter-spacing: 0.125em;
+		  color: #fff;
+		}
+		body div p#output {
+		  width: 1em;
+		  height: 1em;
+		  color: #fff;
+		  font-weight: bold;
+		  font-size: 1.5em;
+		  line-height: 1em;
+		  padding-left: 1em;
+		  background: ;
+		}
+		body div p#ltr {
+		  width: 1em;
+		  height: 1em;
+		  color: #fff;
+		  font-weight: bold;
+		  font-size: 1.5em;
+		  line-height: 1em;
+		  padding-left: 1em;
+		  background: ;
+		}
+		body .b-array,
+		body .i-array,
+		body .n-array,
+		body .g-array,
+		body .o-array {
+		  color: #57a78f;
+		  font-size: 1.3em;
+		  font-weight: bold;
+		  margin-top: 1.2em;
+		}
+		body button {
+		  color: #fff;
+		  font-weight: bold;
+		  margin: 1em 1em 0 0;
+		  padding: 1.125em;
+		  border-radius: 15px;
+		}
+		body button:active {
+		  background: #315a7d;
+		}
+
+
+		/* https://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/ */
+
+		#free {
+			font-size: 8px;
+			font-weight: bold;
+			z-index: 100;
+		}
+
+		.winningBG {
+		/* 	lets set it to flash or blink or something */
+		}
+
+
+		body div p#output {
+		  width: 1em;
+		  height: 1em;
+		  color: #fff;
+		  font-weight: bold;
+		  font-size: 1.5em;
+		  line-height: 1em;
+		  padding-left: 1em;
+		  background: ;
+		}
+		body div p#ltr {
+		  width: 1em;
+		  height: 1em;
+		  color: #fff;
+		  font-weight: bold;
+		  font-size: 1.5em;
+		  line-height: 1em;
+		  padding-left: 1em;
+		  background: ;
+		}
+		body .b-array,
+		body .i-array,
+		body .n-array,
+		body .g-array,
+		body .o-array {
+		  color: #57a78f;
+		  font-size: 1.3em;
+		  font-weight: bold;
+		  margin-top: 1.2em;
+		}
+		body button {
+		  color: #fff;
+		  font-weight: bold;
+		  margin: 1em 1em 0 0;
+		  padding: 1.125em;
+		  border-radius: 15px;
+		}
+		body button:active {
+		  background: #315a7d;
+		}
+
+
+/* https://designshack.net/articles/typography/10-more-great-google-font-combinations-you-can-copy/ */
+
+		body {
+            font-family: Arial, Helvetica, sans-serif;
+			background-color: black;
+        }
+        #current_number , #current_game_number {
+            font-size: 30px;
+            text-align: center;
+            margin-top: 0px;
+            margin-bottom: 0px;
+			position: relative;
+			top:10px;
+			color: white;
+			
+        }
+		
+		
+		
+        #number {
+			border-outline: 2px #000 solid;
+			border-radius: 250px;
+			background-color: blue;
+			width:60px;
+			height: 60px;
+			position: relative;
+			left:35%;
+			margin-top:20px;
+		}
+        .selected {
+            background-color: green;
+            color: white;
+        }
+        
+        #check_table {
+            font-size:5px;
+        }
+		#bingo_div {
+			/*position: relative;
+			left: 21.5em;*/
+			height: 480px;
+
+		}
+		
+		#bingo_flashboard,#bingo_flashboardPlayers {
+			font-size: 10px;
+			position: relative;
+			left: 25em;
+			top: 1em;
+			width: 100px;
+		}
+        .box_bingo_card {
+			width:23%;
+			font-size:15px;
+			position: relative;
+			top:0px;
+			left:10px;
+            float:left;
+            background: lightblue;
+            margin-right:15px;
+			margin-bottom:15px;
+		}
+        button {
+            background-color: green; /* Green */
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 10px;}
+	    #right_view {
+
+			position: relative;
+		}
+		
+		#left_view {
+			/*width:80%;
+			position: relative;
+			top:-10px;*/
+			}
+		#game {
+		
+		}
+		#add_more {
+		/*position: relative;*/
+			left: 85em;
+			top: -37.8em;
+			font-size: 12px;
+			background-color: lightblue;
+			color: white;
+			width: 50%;
+			height: 100px;
+			padding-top: 10px;
+			text-align: center;
+			float: left;
+			margin-bottom: 10px;
+		}
+		#menu {
+		/*position: relative;*/
+			left: 95em;
+			top: -46em;
+			font-size: 12px;
+			background-color: purple;
+			color: white;
+			width: 50%;
+			height: 100px;
+			padding-top: 10px;
+			text-align: center;
+			float: left;
+			margin-bottom: 10px;
+		}
+		#reload {
+		/*position: relative;*/
+			left: 85em;
+			top: -44em;
+			font-size: 12px;
+			background-color: purple;
+			color: white;
+			width: 100%;
+			height: 100px;
+			padding-top: 10px;
+			text-align: center;
+			float: left;
+			margin-bottom: 10px;
+		}
+		
+		#button {
+			font-size: 32px;
+			background-color: green;
+			color: white;
+			width: 100px;
+			height: 70px;
+			padding-top: 10px;
+			text-align: center;
+			position: relative;
+			left: 40%;
+			top: 10px;
+		}
+		
+		.button {
+			font-size: 32px;
+			background-color: green;
+			color: white;
+			width: 100px;
+			height: 70px;
+			padding-top: 10px;
+			text-align: center;
+		}
+		
+		#new_game {
+			position: relative;
+			left: 10px;
+			top:60px;
+			font-size: 10px;
+			width: 200px;
+		}
+		
+		#enter {
+			position: relative;
+			top: -100px;
+			width: 100%;
+		}
+		
+		#controls {
+		position: relative;
+		margin-bottom: 2em;
+		top: 3.2em;
+		left: em;
+		width:100px;
+		}
+		#ball_view {			
+			outline: 2px solid #00f;
+			/* position: relative; */
+			left: 1em;
+			top: -37em;
+			margin-bottom: 10px;
+			background-color: #3e3ee2;
+			padding: 1px;
+		}
+		#game_played {
+			height: 200px;
+			outline: 2px solid #00f;
+			/* position: relative; */
+			left: 1em;
+			top: -67em;
+			background-size: 100% 100%;
+			background-repeat: no-repeat;
+			background-color: blue;
+			background-image: url(../images/chips/black_icon.png);
+		}
+		.mycustome-table{
+			width:100%;
+		}
+		.mycustome-table td, .mycustome-table th {
+			padding: 1px;
+			width: 20%;
+			overflow: hidden;
+			white-space: normal;
+			word-wrap: break-word;
+			word-break: break-all;
+			border: 1px solid #3e3ee2;
+			background: #000;
+			color: #000;
+			position: relative;
+		}
+		.mycustome-table td.select:before, .mycustome-table th.select:after {
+			content: '';
+			width: 70%;
+			height: 70%;
+			position: absolute;
+			background: #ff0000;
+			border-radius: 100%;
+			left: 15%;
+			top: 15%;
+		}
+		.table th, .table  td
+		{
+			border:none !important;
+
+		}
+		#customer_menu {
+		position: relative;
+		width:200px;
+		color: white;
+		left: 20%;
+		}
+		#exit_to_game {
+			float: right;
+			margin-top:2em;
+		}
+
+		@media(min-width:992px){
+			.container{
+				width:90%;
+			}
+		}
+
+		li {
+		  display: inline-block;
+		}
+
+		.chip01{
+		  background-image: url('../images/chips/chips_edited/chip01.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #000;  
+		}
+
+		.chip02{
+		  background-image: url('../images/chips/chips_edited/chip02.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip03{
+		  background-image: url('../images/chips/chips_edited/chip03.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip04{
+		  background-image: url('../images/chips/chips_edited/chip04.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #000;
+		}
+		.chip05{
+		  background-image: url('../images/chips/chips_edited/chip05.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip06{
+		  background-image: url('../images/chips/chips_edited/chip06.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip07{
+		  background-image: url('../images/chips/chips_edited/chip07.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip08{
+		  background-image: url('../images/chips/chips_edited/chip08.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip09{
+		  background-image: url('../images/chips/chips_edited/chip09.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+		.chip10{
+		  background-image: url('../images/chips/chips_edited/chip10.png');
+		  background-repeat: no-repeat;
+		  background-position: center; 
+		  font-weight: bold;
+		  color: #f00;
+		}
+
+		#circleBlue {
+			background: #00f;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		 
+		}
+
+		#circleRed {
+			background: #f00;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+
+		}
+
+		#circleYellow {
+			background: #ff0;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+		 
+		}
+
+		#circleGreen {
+			background: #0f0;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+
+		}
+
+		#circleOrange {
+			background: #ffa500;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+
+		}
+
+		.colorBlue{
+		  background: #00f;
+		  width: 20px;
+		  height: 20px;
+		  border-radius: 100%;
+		  font-weight: bold;
+		  color: #fff;
+		}
+		.colorRed{
+		  background: #f00;
+		  width: 20px;
+		  height: 20px;
+		  border-radius: 100%;
+		  font-weight: bold;
+		  color: #fff;
+		}
+
+		.colorYellow{
+		  background: #ff0;
+		  width: 20px;
+		  height: 20px;
+		  border-radius: 100%;
+		  font-weight: bold;
+		  color: #00f;
+		}
+
+		.colorGreen{
+		  background: #0f0;
+		  width: 20px;
+		  height: 20px;
+		  border-radius: 100%;
+		  font-weight: bold;
+		  color: #fff;
+		}
+
+		.colorOrange{
+		  background: #ffa500;
+		  width: 20px;
+		  height: 20px;
+		  border-radius: 100%;
+		  font-weight: bold;
+		  color: #fff;
+		}
+
+		.borderDabber{
+		  border: 1px solid red;
+		}
+
+		.borderWinningCard{
+		  border: 10px solid #0f0;
+		}
+
+		.top {
+			position: relative;
+			top: -20px;
+			font-size: 17px;
+			padding-right: 13px;
+		}
+
+		.bottom {
+			position: relative;
+			top:20px;
+			font-size: 17px;
+			padding-left: 13px;
+		}
+
+		.doubles_card {
+			line-height :40px;
+			width: 100%;
+		}
+
+		#bingo_card,#bingo_card1,#bingo_card2,#bingo_card3
+		{
+			float:left;margin-right:15px;
+			margin-bottom:15px;
+		}
+
+
+		
